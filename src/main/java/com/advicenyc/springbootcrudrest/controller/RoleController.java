@@ -16,30 +16,31 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.advicenyc.springbootcrudrest.exception.RecordNotFoundException;
-import com.advicenyc.springbootcrudrest.model.Category;
-import com.advicenyc.springbootcrudrest.services.ICategoryService;
+import com.advicenyc.springbootcrudrest.model.Role;
+import com.advicenyc.springbootcrudrest.services.IRoleService;
 
 
 
 
 
 @RestController
-@RequestMapping("/category")
-public class CategoryController 
+@RequestMapping("/role")
+public class RoleController 
 {
-	private ICategoryService cs;
+	private IRoleService rs;
 	
 	 @Autowired
-	    public CategoryController(ICategoryService cs)
+	    public RoleController(IRoleService rs)
 	 {
-	        this.cs = cs;
+	        this.rs = rs;
 	  }
 	 
 	  @GetMapping
-	    public ResponseEntity<List<Category>> getAllCategory() {
-	        return new ResponseEntity(cs.getCategories(), HttpStatus.OK);
+	    public ResponseEntity<List<Role>> getAllCategory() {
+	        return new ResponseEntity(rs.getRoles(), HttpStatus.OK);
 	    }
 	  
+	  /*
 	  @GetMapping("/{id}")
 		public ResponseEntity getVisualizationById(@PathVariable int id) {
 			if(id == 0 ) {
@@ -76,6 +77,6 @@ public class CategoryController
 	        
 	    }  //deleteCategory(@PathVariable int id)
 	    
-
+*/
 
 }

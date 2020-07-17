@@ -3,10 +3,10 @@ package com.advicenyc.springbootcrudrest.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.advicenyc.springbootcrudrest.repository_daos.CategoryDAOrep;
 
+import com.advicenyc.springbootcrudrest.repository_daos.RoleDAOrep;
 import com.advicenyc.springbootcrudrest.exception.RecordNotFoundException;
-import com.advicenyc.springbootcrudrest.model.Category;
+import com.advicenyc.springbootcrudrest.model.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,24 +16,24 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
-public class CategoryService implements ICategoryService {
+public class RoleService implements IRoleService {
 
-    private CategoryDAOrep cd;
+    private RoleDAOrep rd;
     
     @Autowired 
-    CategoryDAOrep repository;
+    RoleDAOrep repository;
 
     @Autowired
-    public CategoryService(CategoryDAOrep cd) {
-        this.cd = cd;
+    public RoleService(RoleDAOrep rd) {
+        this.rd = rd;
     }
 
     @Override
-    public List<Category> getCategories() 
+    public List<Role> getRoles() 
     {
-        return cd.findAll();
+        return rd.findAll();
     }
-    
+    /*
 	
 	@Override
 	public Category getCategoryByID(int id) 
@@ -56,7 +56,10 @@ public class CategoryService implements ICategoryService {
      *           userId asc }
      * 
      */
-	 
+	
+    
+    
+    /*
 	   @Override
 	    @Transactional
 	    public Category updateCategory(Category c) {
@@ -76,5 +79,5 @@ public class CategoryService implements ICategoryService {
 	       
 	    }
 
-
+*/
 }
