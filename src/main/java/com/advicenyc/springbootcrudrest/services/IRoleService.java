@@ -10,8 +10,8 @@ public interface IRoleService
 {
 	
 	  public List<Role> getRoles();
-	 // public Category getCategoryByID(int id);
-	 // public Category saveNewCategory(Category c);
-	//  public Category updateCategory(Category c);
-	//   public void deleteCategory(int id);
+	  public Role getRoleByID(int id);
+	  public Role saveNewRole(Role r);
+	  public Role updateRole(Role r);
+	  public void deleteRole(int id);
 }

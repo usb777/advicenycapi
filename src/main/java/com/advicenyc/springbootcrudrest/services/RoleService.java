@@ -33,51 +33,54 @@ public class RoleService implements IRoleService {
     {
         return rd.findAll();
     }
-    /*
+    
 	
 	@Override
-	public Category getCategoryByID(int id) 
+	public Role getRoleByID(int id) 
 	{
-		return cd.getOne(id);
+		return rd.getOne(id);
 	}
     
 	
 	 @Override
-	 public Category saveNewCategory(Category c) 
+	 public Role saveNewRole(Role r) 
 	 {
-	        return cd.save(c);
+	        return rd.save(r);
 	 }
 
     /**
      * Sort method:Dzimtry
      * 
-     * @Override public List<Users> getAllUsers() { return
-     *           ud.findAll(Sort.by(Sort.Direction.ASC, "userId")); //Sorted By
-     *           userId asc }
+     * @Override public List<Role> getAllRoles() { return
+     *           ud.findAll(Sort.by(Sort.Direction.ASC, "id")); //Sorted By    *  
+     *                    userId asc }
      * 
      */
 	
     
     
-    /*
+    
 	   @Override
 	    @Transactional
-	    public Category updateCategory(Category c) {
-	        Category oldC = cd.getOne(c.getId());
+	    public Role updateRole(Role r) 
+	   {
+	        Role oldC = rd.getOne(r.getId());
 	       
-	        if (c.getName() != null) {
-	            oldC.setName(c.getName());
+	        if (r.getRole() != null) 
+	        {
+	            oldC.setRole(r.getRole());
 	        }
 	        return oldC;
 	    }
 	    
 
 	    @Override
-	    public void deleteCategory(int id){
-	        Category oldC = cd.getOne(id);
-	        cd.deleteById(id);
+	    public void deleteRole(int id)
+	    {
+	        Role oldC = rd.getOne(id);
+	        rd.deleteById(id);
 	       
 	    }
 
-*/
+
 }
