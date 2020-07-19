@@ -36,47 +36,48 @@ public class RoleController
 	  }
 	 
 	  @GetMapping
-	    public ResponseEntity<List<Role>> getAllCategory() {
+	    public ResponseEntity<List<Role>> getAllRoles() {
 	        return new ResponseEntity(rs.getRoles(), HttpStatus.OK);
 	    }
 	  
-	  /*
+	  
 	  @GetMapping("/{id}")
-		public ResponseEntity getVisualizationById(@PathVariable int id) {
-			if(id == 0 ) {
+		public ResponseEntity getRoleById(@PathVariable int id) {
+			if(id == 0 ) 
+			{
 				return new ResponseEntity<>("Id must not be 0", HttpStatus.BAD_REQUEST);
 			}
-			return new ResponseEntity<Category>(cs.getCategoryByID(id), HttpStatus.OK);
+			return new ResponseEntity<Role>(rs.getRoleByID(id), HttpStatus.OK);
 		}
 	  
 	  
 
 	    @PostMapping
-	    public ResponseEntity<Category> saveNewCategory(@RequestBody Category c){
-	        if(c.getId()!=0){
+	    public ResponseEntity<Role> saveNewRole(@RequestBody Role r){
+	        if(r.getId()!=0)
+	        {
 	            return new ResponseEntity("Id must be 0", HttpStatus.BAD_REQUEST);
 	        }
-	        return new ResponseEntity(cs.saveNewCategory(c), HttpStatus.OK);
+	        return new ResponseEntity(rs.saveNewRole(r), HttpStatus.OK);
 	    }
 	    
 	    
-	    
+	     
 	    @PatchMapping
-	    public ResponseEntity<Category> updateCategory(@RequestBody Category c) {
-	        if (c.getId() == 0) {
-	            return new ResponseEntity("Category id must not be 0", HttpStatus.BAD_REQUEST);
+	    public ResponseEntity<Role> updateRole(@RequestBody Role r) {
+	        if (r.getId() == 0) {
+	            return new ResponseEntity("Role id must not be 0", HttpStatus.BAD_REQUEST);
 	        }
-	        return new ResponseEntity(cs.updateCategory(c), HttpStatus.CREATED);
+	        return new ResponseEntity(rs.updateRole(r), HttpStatus.CREATED);
 	    }
 
 	    @DeleteMapping("{id}")
-	    public  ResponseEntity<Object> deleteCategory(@PathVariable int id){    	
-	    	  cs.deleteCategory(id);
-	    	  return new ResponseEntity( HttpStatus.OK);  	
-	    	
-	        
+	    public  ResponseEntity<Object> deleteRole(@PathVariable int id)
+	    {    	
+	    	  rs.deleteRole(id);
+	    	  return new ResponseEntity( HttpStatus.OK);  
 	    }  //deleteCategory(@PathVariable int id)
 	    
-*/
+
 
 }
