@@ -3,9 +3,12 @@ package com.advicenyc.springbootcrudrest.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,6 +20,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.advicenyc.springbootcrudrest.model.Role;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -40,11 +44,31 @@ public class Users
 	
 	@Column(name = "password")
 	private String password;
-	
+	/*
 	@Column(name = "role")
     private int role;
-	
+	*/
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="role")
+	private Role role;
+	
+	public Users()
+	{
+		super();
+	}
+	
+	public Users(int id, String fullname, String email, String username, String password, Role role)
+	{super();
+		this.id = id;
+		this.fullname = fullname;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		
+	}
+	
 	public int getId() 
 	{
 		return id;
@@ -86,13 +110,21 @@ public class Users
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+/*
 	public int getRole() {
 		return role;
 	}
 
 	public void setRole(int role) {
 		this.role = role;
+	}
+*/
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role1) {
+		this.role = role1;
 	}
 	
 

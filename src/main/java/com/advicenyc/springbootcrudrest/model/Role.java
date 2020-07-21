@@ -29,6 +29,22 @@ public class Role
 	
 	@Column(name = "role_name")
 	private String role;
+	
+	public Role(int id, String role)
+	{ 
+		super();
+		this.id = id;
+		this.role = role;
+		
+	}
+	public Role()
+	{
+		super();
+	}
+
+	
+	
+	
 
 	public int getId()
 	{
